@@ -1,4 +1,5 @@
-import dataFirstnames from './dataset/surnames.js'
+import dataFirstnames from './dataset/firstnames.js'
+import dataSurnames from './dataset/firstnames.js'
 
 function generate(object, count) {
 	if (!object.type) throw new Error("Field type is not defined");
@@ -28,6 +29,9 @@ const generators = {
 	},
 	firstname: () => {
 		return dataFirstnames[Math.floor(Math.random() * dataFirstnames.length)]
+	},
+	surname: () => {
+		return dataSurnames[Math.floor(Math.random() * dataSurnames.length)]
 	}
 }
 export default generate;

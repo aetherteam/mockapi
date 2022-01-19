@@ -4,8 +4,11 @@ const template = {
         type: "intid",
         unique: true
     },
-    nickname: {
-        type: "nickname"
+    firstname: {
+        type: "firstname"
+    },
+    surname: {
+        type: "surname"
     }
 }
 const userMock = new Mock(template);
