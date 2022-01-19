@@ -1,4 +1,4 @@
-import dataNicknames from './dataset/nicknames.js'
+import dataFirstnames from './dataset/surnames.js'
 
 function generate(object, count) {
 	if (!object.type) throw new Error("Field type is not defined");
@@ -14,7 +14,7 @@ function generate(object, count) {
 		if (object.unique) {
 			do {
 				result.push(generated);
-			} while (!idsArray.includes(generated))
+			} while (!result.includes(generated))
 		} else {
 			result.push(generated);
 		}
@@ -26,8 +26,8 @@ const generators = {
 	intid: () => {
 		return 1000000 + Math.floor(Math.random() * 1000);
 	},
-	nickname: () => {
-		return dataNicknames[Math.floor(Math.random() * dataNicknames.length)]
+	firstname: () => {
+		return dataFirstnames[Math.floor(Math.random() * dataFirstnames.length)]
 	}
 }
 export default generate;

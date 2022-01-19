@@ -1,4 +1,6 @@
-import generate from './generate/index.js';
+import generate from './src/index.js';
+// todo: custom return template 
+// ex. {code: 200, data: data}
 
 class Mock {
     constructor(template) {
