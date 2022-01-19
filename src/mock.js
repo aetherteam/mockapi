@@ -11,26 +11,31 @@ class Mock {
 
         if (count < 1) {
             throw new Error("You should generate at least one item (or else why do you need to call this method? :) ))");
-        }
-        else if (count === 1) {
-            return Generate.generateID(count);
-        }
-        else {
+        } else if (count === 1) {
+            let generated = {}
+            template.forEach((item) => {
+                generated[item[0]] = Generate.generateID(1);
+            });
+
+            return generated;
+        } else {
             let generated = {}
             template.forEach((item) => {
                 generated[item[0]] = Generate.generateID(count);
             });
-    
+
             const generatedArr = Object.entries(generated)
             const result = []
             for (let i = 0; i < count; i++) {
                 let x = {}
+
                 generatedArr.forEach((item) => {
                     x[item[0]] = item[1][i];
                 });
-        
+
                 result.push(x)
             }
+
             return result;
         }
     }

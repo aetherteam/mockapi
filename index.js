@@ -1,4 +1,6 @@
 import Mock from './src/mock.js'
 
 const ids = new Mock({id: "intid"})
-const users = ids.get(10);
+const users = ids.get(1);
+
+console.log(users)
