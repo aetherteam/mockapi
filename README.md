@@ -41,19 +41,27 @@ const template = {
 
 `type` is the type of generating field.
 
-`unique == true` will generate a unique value (defaul == false).
+`unique == true` will generate a unique value (default == false).
 
 
-## Types
+### Types
 
 `intid` - integer id (ex. 10000054)
+
 `fullname` - full name (ex. Alex Jasmine)
+
 `firstname` - first name (ex. Alex)
+
 `surname` - surname (ex. Jasmine)
+
 `nickname` - nickname (ex. alexjasmine)
+
 `email` - email address (ex. alexjasmine@gmail.com)
 
+
 `randomrow:20` - generates random string with length of 20 (ex. "yfndforjfhfukfoepg")
+
 `randomint:1:10` - generates random int between 1 and 10
+
 
 `randomtext:10` - generates random text with 10 words (text has no sense);
