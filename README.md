@@ -18,13 +18,11 @@ const userTemplate = {
     name: {
         type: "fullname"
     }
-}
+} // create a template (explained below)
 
-// create template (explained below)
+const userMock = new Mock(userTemplate); // create instance of the Mock from the template
 
-const userMock = new Mock(userTemplate); // create instance of Mock from template
-
-const users = userMock.get(10); // generate 10 users from template
+const users = userMock.get(10); // generate 10 users from the template
 ```
 
 ### Templates 
@@ -46,22 +44,21 @@ const template = {
 
 ### Types
 
-`intid` - integer id (ex. 10000054)
+`intid` - integer id (e.g. 10000054)
 
-`fullname` - full name (ex. Alex Jasmine)
+`person` - object that contains firstname, surname, email and nickname 
+```js
+person: {
+    fullname, // full name (e.g. Alex Jasmine)
+    firstname, // first name (e.g. Alex)
+    surname, // surname (e.g. Jasmine)
+    nickname, // nickname (e.g. alexjasmine)
+    email, // email address (e.g. alexjasmine@gmail.com)
+    age // age (e.g. 46)
+} // NOTE: THIS WILL NOT GENERATE PERSON, THIS WILL ADD ALL FIELDS TO THE OBJECT, NOT ONLY PERSON OBJECT SO YOU CAN USE ANY NAME OF THIS FIELD
+```
+`randomrow:20` - generates random string with length of 20 (e.g. "yfndforjfhfukfoepg")
 
-`firstname` - first name (ex. Alex)
-
-`surname` - surname (ex. Jasmine)
-
-`nickname` - nickname (ex. alexjasmine)
-
-`email` - email address (ex. alexjasmine@gmail.com)
-
-
-`randomrow:20` - generates random string with length of 20 (ex. "yfndforjfhfukfoepg")
-
-`randomint:1:10` - generates random int between 1 and 10
-
+`randomint:1:10` - generates random int between 1 and 1 
 
 `randomtext:10` - generates random text with 10 words (text has no sense);

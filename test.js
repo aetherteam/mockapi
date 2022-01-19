@@ -1,6 +1,6 @@
 import Mock from "./index.js"
 const template = {
-    id:{
+    id: {
         type: "intid",
         unique: true
     },
@@ -9,6 +9,9 @@ const template = {
     },
     surname: {
         type: "surname"
+    },
+    d: {
+        type: "person"
     }
 }
 const userMock = new Mock(template);

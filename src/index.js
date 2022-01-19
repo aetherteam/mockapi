@@ -27,6 +27,23 @@ const generators = {
 	intid: () => {
 		return 1000000 + Math.floor(Math.random() * 1000);
 	},
+	person: () => {
+		const firstname = dataFirstnames[Math.floor(Math.random() * dataFirstnames.length)];
+		const surname = dataSurnames[Math.floor(Math.random() * dataSurnames.length)]
+		const fullname = firstname + " " + surname;
+		const nickname = (firstname + surname).toLowerCase();
+		const email = nickname + "@gmail.com";
+		const age = 18 + Math.floor(Math.random() * 50);
+
+		return {
+			firstname,
+			surname,
+			fullname,
+			nickname,
+			email,
+			age
+		}
+	},
 	firstname: () => {
 		return dataFirstnames[Math.floor(Math.random() * dataFirstnames.length)]
 	},

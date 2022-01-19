@@ -2,6 +2,7 @@ import generate from './src/index.js';
 // todo: custom return template 
 // ex. {code: 200, data: data}
 
+// todo: async and promisify
 class Mock {
     constructor(template) {
         if (Object.keys(template).length < 1) throw new Error("Template must have at least one key");
@@ -16,7 +17,8 @@ class Mock {
         } else if (count === 1) {
             let generated = {}
             template.forEach((item) => {
-                generated[item[0]] = generate(item[1], 1);
+                if (item[1].type === 'person') generated = { ...generated, ...generate(item[1], 1)};
+                else generated[item[0]] = generate(item[1], 1);
             });
 
             return generated;
@@ -32,13 +34,16 @@ class Mock {
                 let record = {}
 
                 generatedArr.forEach((item) => {
-                    record[item[0]] = item[1][i];
+                    if (item[0] in template) record[item[0]] = item[1][i];
                 });
 
                 result.push(record)
             }
 
-            return result;
+            return {
+                status: 200,
+                data: result
+            };
         }
     }
 
