@@ -1,23 +1,27 @@
 class Generate {
-	constructor() { }
+	constructor() {}
 
-	generateID(count) {
-		let idsArray = [];
-
-		const gen = () => {
-			return 1000000 + Math.floor(Math.random() * (count * 10));
+	generate(object, count) {
+		let gf;
+		if (object.type === 'intid') {
+			gf = intid;
 		}
 
+		if (count === 1) return gf();
+
+		const result = [];
 		for (let i = 1; i <= count; i++) {
-			let result = gen()
-			
+			let generated = gf()
 			do {
-				idsArray.push(result)
-			} while (!idsArray.includes(result))
+				result.push(generated)
+			} while (!idsArray.includes(generated))
 		}
-
-		return idsArray;
+		return result;
 	}
+}
+
+function intid() {
+	return 1000000 + Math.floor(Math.random() * 1000);
 }
 
 export default new Generate();
