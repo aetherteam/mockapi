@@ -19,3 +19,5 @@ class Generate {
 		return idsArray;
 	}
 }
+
+export default new Generate();

@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/aetherteam/mockapi/issues"
   },
-  "homepage": "https://github.com/aetherteam/mockapi#readme"
+  "homepage": "https://github.com/aetherteam/mockapi#readme",
+  "type": "module"
 }
