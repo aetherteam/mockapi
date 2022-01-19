@@ -1,27 +1,28 @@
-class Generate {
-	constructor() {}
+function generate(object, count) {
+	if (!object.type) throw new Error("Field type is not defined"); 
+	if (!generators[object.type]) throw new TypeError("Using unexisted type " + object.type);
 
-	generate(object, count) {
-		let gf;
-		if (object.type === 'intid') {
-			gf = intid;
-		}
+	let generator = generators[object.type];
+	
+	if (count === 1) return generator();
 
-		if (count === 1) return gf();
-
-		const result = [];
-		for (let i = 1; i <= count; i++) {
-			let generated = gf()
+	const result = [];
+	for (let i = 1; i <= count; i++) {
+		let generated = generator()
+		if (object.unique) {
 			do {
-				result.push(generated)
+				result.push(generated);
 			} while (!idsArray.includes(generated))
+		} else {
+			result.push(generated);
 		}
-		return result;
+	}
+	return result;
+}
+
+const generators = {
+	intid: () => {
+		return 1000000 + Math.floor(Math.random() * 1000);
 	}
 }
-
-function intid() {
-	return 1000000 + Math.floor(Math.random() * 1000);
-}
-
-export default new Generate();
+export default generate;

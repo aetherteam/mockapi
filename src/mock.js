@@ -1,4 +1,4 @@
-import Generate from './generate/index.js';
+import generate from './generate/index.js';
 
 class Mock {
     constructor(template) {
@@ -14,14 +14,14 @@ class Mock {
         } else if (count === 1) {
             let generated = {}
             template.forEach((item) => {
-                generated[item[0]] = Generate.generate(item[1], 1);
+                generated[item[0]] = generate(item[1], 1);
             });
 
             return generated;
         } else {
             let generated = {}
             template.forEach((item) => {
-                generated[item[0]] = Generate.generate(item[1], count);
+                generated[item[0]] = generate(item[1], count);
             });
 
             const generatedArr = Object.entries(generated)
