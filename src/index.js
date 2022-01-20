@@ -33,7 +33,7 @@ const generators = {
 		const fullname = firstname + " " + surname;
 		const nickname = (firstname + surname).toLowerCase();
 		const email = nickname + "@gmail.com";
-		const age = 18 + Math.floor(Math.random() * 50);
+		const age = 12 + Math.floor(Math.random() * 50);
 
 		return {
 			firstname,

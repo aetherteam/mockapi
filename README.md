@@ -1,9 +1,9 @@
 # mockapi
-## Installation
+<!-- ## Installation
 
 ```
 npm i mockapi
-```
+``` -->
 
 ## Usage
 
@@ -57,8 +57,8 @@ person: {
     age // age (e.g. 46)
 } // NOTE: THIS WILL NOT GENERATE PERSON, THIS WILL ADD ALL FIELDS TO THE OBJECT, NOT ONLY PERSON OBJECT SO YOU CAN USE ANY NAME OF THIS FIELD
 ```
-`randomrow:20` - generates random string with length of 20 (e.g. "yfndforjfhfukfoepg")
+<!-- `randomrow:20` - generates random string with length of 20 (e.g. "yfndforjfhfukfoepg")
 
 `randomint:1:10` - generates random int between 1 and 1 
 
-`randomtext:10` - generates random text with 10 words (text has no sense);
+`randomtext:10` - generates random text with 10 words (text has no sense); -->
