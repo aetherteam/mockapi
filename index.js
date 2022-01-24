@@ -9,7 +9,7 @@ class Mock {
         this.template = template;
     }
 
-    get(count) {
+    get(count, _t = false) {
         let template = Object.entries(this.template);
 
         if (count < 1) {
@@ -55,6 +55,10 @@ class Mock {
                 result.push(record)
             }
 
+            if (_t) {
+                return result;
+            }
+            
             return {
                 status: 200,
                 data: result

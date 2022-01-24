@@ -1,5 +1,10 @@
 import Mock from "./index.js"
-
+const tpl = {
+    id: {
+        type: "intid",
+        unique: true
+    }
+}
 const template = {
     id: {
         type: "intid",
@@ -18,13 +23,11 @@ const template = {
     },
     loremipsum: {
         type: "loremipsum"
-    }
-    //todo:
-    // customField: {
-    //     type: "custom",
-    //     mock: new Mock(tpl),
-    //     count: 10
-    // },
+    },
+    customField: {
+        type: "custom",
+        mock: new Mock(tpl),
+    },
     
 }
 const userMock = new Mock(template);

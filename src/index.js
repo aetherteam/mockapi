@@ -34,7 +34,7 @@ function getGenerator(type) {
 
 const generators = {
 	intid: () => {
-		return 1000000 + Math.floor(Math.random() * 1000);
+		return 1000000 + Math.floor(Math.random() * 100000);
 	},
 	person: () => {
 		const firstname = dataFirstnames[Math.floor(Math.random() * dataFirstnames.length)];
@@ -84,6 +84,10 @@ const generators = {
 			count: object.count,
 			units: object.units 
 		})
+	},
+	custom: (object) => {
+		object.count = object.count || 1;
+		return object.mock.get(object.count, true);
 	}
 }
 
