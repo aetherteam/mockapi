@@ -1,9 +1,9 @@
 # mockapi
-## Installation
+<!-- ## Installation
 
 ```
 npm i mockapi
-```
+``` -->
 
 ## Usage
 
@@ -59,6 +59,6 @@ person: {
 ```
 `randomrow` - generates random string with length of 32 (e.g. "yfftyujk34i26j6h6no6rjfhfukfoepg")
 
-`randomint:1:10` - generates random int between 1 and 1 
+`randomint` - generates random int between 1 and 1 
 
 `loremipsum` - generates random text with 10 words (text has no sense);
