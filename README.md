@@ -4,6 +4,12 @@
 ```
 npm i mockapi
 ```
+## Fast navigation
+- [Example](https://github.com/aetherteam/mockapi#example)
+- [Templates](https://github.com/aetherteam/mockapi#templates)
+- [Types](https://github.com/aetherteam/mockapi#types)
+- [Extended example](#extended-example)
+
 
 ## Example
 ```js
@@ -26,7 +32,6 @@ console.log(userMock.get(10)); // generate 10 users from the template
 userMock.getAsync(1).then((res) => {
 	console.log(res);
 }); // async version
-```
 ```
 
 ### Templates 
