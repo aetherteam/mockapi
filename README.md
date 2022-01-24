@@ -5,9 +5,9 @@
 npm i mockapi
 ```
 ## Fast navigation
-- [Example](https://github.com/aetherteam/mockapi#example)
-- [Templates](https://github.com/aetherteam/mockapi#templates)
-- [Types](https://github.com/aetherteam/mockapi#types)
+- [Example](#example)
+- [Templates](#templates)
+- [Types](#types)
 - [Extended example](#extended-example)
 
 
