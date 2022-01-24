@@ -40,6 +40,7 @@ const template = {
 }
 ```
 `fieldName` is a name of field you want to generate.
+
 `type` is the type of generating field.
 
 You can use other mocks in template (described below)
@@ -48,30 +49,45 @@ You can use other mocks in template (described below)
 ### Types
 #### intid
 Returns int id that can be unique
+
 `type: "intid"` 
+
 `unique: bool` _(default = false)_ -- Determines if the value must be unique
 #### person
 Returns an object with person
+
 `type: "person"` 
+
 `insert: bool` _(default = false)_ -- Determines if the value must be inserted in result or added as object  
 #### randomrow
 Returns a random row
+
 `type: "randomrow"` 
+
 `len: int` _(default = 32)_ -- Determines if the value must be inserted in result or added as object  
+
 `canUseNumbers: bool` _(default = false)_ -- Can string contain numbers  
 #### randomint
 Returns a random int
+
 `type: "randomint"` 
+
 `min: int` _(default = 0)_ -- Min value
+
 `max: int` _(default = 10)_ -- Max value
 #### loremipsum
 Returns loremipsum text that has no sense but useful for creating placeholder texts
+
 `type: "loremipsum"` 
+
 `units: "sentences" || "words" || "paragraphs"` _(default = "sentences")_ -- Units of counting
+
 `count: int` _(default = 1)_ -- Count of units to generate
 #### custom
 Returns custom object that created from another mock
+
 `type: "custom"`
+
 `template: object` -- Template for created object 
 
 
