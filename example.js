@@ -1,15 +1,15 @@
 import Mock from "./index.js";
 
-const tpl = {
+const firstTemplate = {
 	id: {
 		type: "intid",
 		unique: true
 	}
 };
-const template = {
+const secondTemplate = {
 	id: {
 		type: "intid",
-		unique: true
+		unique: false
 	},
 	person: {
 		type: "person",
@@ -27,10 +27,14 @@ const template = {
 	},
 	customField: {
 		type: "custom",
-		template: tpl,
+		template: firstTemplate,
 	}
     
 };
-const userMock = new Mock(template);
+
+const userMock = new Mock(secondTemplate);
 
 console.log(userMock.get(1));
+userMock.getAsync(1).then((res) => {
+	console.log(res);
+});

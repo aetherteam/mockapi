@@ -1,12 +1,11 @@
 # mockapi
-<!-- ## Installation
+## Installation
 
 ```
 npm i mockapi
-``` -->
+```
 
-## Usage
-
+## Example
 ```js
 import mockapi as Mock;
 
@@ -30,35 +29,87 @@ const users = userMock.get(10); // generate 10 users from the template
 ```js
 const template = {
     fieldName: {
-        type: Mock.type,
-        unique: true
+        type: "type"
+        [, args]
     }
 }
 ```
 `fieldName` is a name of field you want to generate.
-
 `type` is the type of generating field.
 
-`unique == true` will generate a unique value (default == false).
+You can use other mocks in template (described below)
 
 
 ### Types
+#### intid
+Returns int id that can be unique
+`type: "intid"` 
+`unique: bool` _(default = false)_ -- Determines if the value must be unique
+#### person
+Returns an object with person
+`type: "person"` 
+`insert: bool` _(default = false)_ -- Determines if the value must be inserted in result or added as object  
+#### randomrow
+Returns a random row
+`type: "randomrow"` 
+`len: int` _(default = 32)_ -- Determines if the value must be inserted in result or added as object  
+`canUseNumbers: bool` _(default = false)_ -- Can string contain numbers  
+#### randomint
+Returns a random int
+`type: "randomint"` 
+`min: int` _(default = 0)_ -- Min value
+`max: int` _(default = 10)_ -- Max value
+#### loremipsum
+Returns loremipsum text that has no sense but useful for creating placeholder texts
+`type: "loremipsum"` 
+`units: "sentences" || "words" || "paragraphs"` _(default = "sentences")_ -- Units of counting
+`count: int` _(default = 1)_ -- Count of units to generate
+#### custom
+Returns custom object that created from another mock
+`type: "custom"`
+`template: object` -- Template for created object 
 
-`intid` - integer id (e.g. 10000054)
 
-`person` - object that contains firstname, surname, email and nickname 
+## Extended example 
 ```js
-person: {
-    fullname, // full name (e.g. Alex Jasmine)
-    firstname, // first name (e.g. Alex)
-    surname, // surname (e.g. Jasmine)
-    nickname, // nickname (e.g. alexjasmine)
-    email, // email address (e.g. alexjasmine@gmail.com)
-    age // age (e.g. 46)
-} // NOTE: THIS WILL NOT GENERATE PERSON, THIS WILL ADD ALL FIELDS TO THE OBJECT, NOT ONLY PERSON OBJECT SO YOU CAN USE ANY NAME OF THIS FIELD
+import Mock from "./index.js";
+
+const firstTemplate = {
+	id: {
+		type: "intid",
+		unique: true
+	}
+};
+const secondTemplate = {
+	id: {
+		type: "intid",
+		unique: false
+	},
+	person: {
+		type: "person",
+		insert: true
+	},
+	randomrow: {
+		type: "randomrow",
+		len: 100
+	},
+	randomint: {
+		type: "randomint"
+	},
+	loremipsum: {
+		type: "loremipsum"
+	},
+	customField: {
+		type: "custom",
+		template: firstTemplate,
+	}
+};
+
+const userMock = new Mock(secondTemplate);
+
+console.log(userMock.get(1)); // sync version
+
+userMock.getAsync(1).then((res) => {
+	console.log(res);
+}); // async version
 ```
-`randomrow` - generates random string with length of 32 (e.g. "yfftyujk34i26j6h6no6rjfhfukfoepg")
-
-`randomint` - generates random int between 1 and 1 
-
-`loremipsum` - generates random text with 10 words (text has no sense);

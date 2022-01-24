@@ -9,7 +9,7 @@ class Mock {
 		this.template = template;
 	}
 
-	get(count, _t = false) {
+	get (count, _t = false) {
 		let template = Object.entries(this.template);
 
 		if (count < 1) {
@@ -65,6 +65,12 @@ class Mock {
 			};
 		}
 	}
-
+	getAsync (count, delay=1) {
+		return new Promise( (resolve) => {
+			setTimeout(() => {
+				resolve(this.get(count));
+			}, delay);
+		});
+	}
 }
 export default Mock;
