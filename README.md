@@ -139,3 +139,21 @@ userMock.getAsync(1).then((res) => {
 	console.log(res);
 }); // async version
 ```
+
+This will return 
+
+```js
+{
+  id: 1057252,
+  firstname: 'Maitea',
+  surname: 'Rohon',
+  fullname: 'Maitea Rohon',
+  nickname: 'maitearohon',
+  email: 'maitearohon@yandex.ru',
+  age: 56,
+  randomrow: 'rPNbhRyZYnydKTSwvycGpXXdlxaSrybBtStcAktcWPZoJGgwqIfIXrSjNTkBEbBrfwBWFkIzSVgXVOmxwNbPpepmateiBrLnEVnP',
+  randomint: 5,
+  loremipsum: 'Ad tempor amet voluptate veniam.',
+  customField: { id: 1018622 }
+}
+```

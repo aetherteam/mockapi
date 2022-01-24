@@ -1,15 +1,15 @@
 import generate from "./src/index.js";
 // todo: custom return template 
 // ex. {code: 200, data: data}
+// todo: do error (just return code 500)
 
-// todo: async and promisify
 class Mock {
 	constructor(template) {
 		if (Object.keys(template).length < 1) throw new Error("Template must have at least one key");
 		this.template = template;
 	}
 
-	get (count, _t = false) {
+	get (count) {
 		let template = Object.entries(this.template);
 
 		if (count < 1) {
@@ -55,14 +55,7 @@ class Mock {
 				result.push(record);
 			}
 
-			if (_t) {
-				return result;
-			}
-            
-			return {
-				status: 200,
-				data: result
-			};
+			return result;
 		}
 	}
 	getAsync (count, delay=1) {
