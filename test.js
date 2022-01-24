@@ -1,18 +1,31 @@
 import Mock from "./index.js"
+
 const template = {
     id: {
         type: "intid",
         unique: true
     },
-    firstname: {
-        type: "firstname"
+    person: {
+        type: "person",
+        insert: true
     },
-    surname: {
-        type: "surname"
+    randomrow: {
+        type: "randomrow",
+        len: 100
     },
-    d: {
-        type: "person"
+    randomint: {
+        type: "randomint"
+    },
+    loremipsum: {
+        type: "loremipsum"
     }
+    //todo:
+    // customField: {
+    //     type: "custom",
+    //     mock: new Mock(tpl),
+    //     count: 10
+    // },
+    
 }
 const userMock = new Mock(template);
 

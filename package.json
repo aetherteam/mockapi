@@ -17,5 +17,8 @@
     "url": "https://github.com/aetherteam/mockapi/issues"
   },
   "homepage": "https://github.com/aetherteam/mockapi#readme",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "lorem-ipsum": "^2.0.4"
+  }
 }

@@ -17,15 +17,24 @@ class Mock {
         } else if (count === 1) {
             let generated = {}
             template.forEach((item) => {
-                if (item[1].type === 'person') generated = { ...generated, ...generate(item[1], 1)};
-                else generated[item[0]] = generate(item[1], 1);
+                if (item[1].type === 'person' && item[1].insert == true) {
+                    generated = {
+                        ...generated,
+                        ...generate(item[1], 1)
+                    };
+                } else generated[item[0]] = generate(item[1], 1);
             });
 
             return generated;
         } else {
             let generated = {}
             template.forEach((item) => {
-                generated[item[0]] = generate(item[1], count);
+                if (item[1].type === 'person' && item[1].insert == true) {
+                    generated[item[0]] = {
+                        ...generated,
+                        ...generate(item[1], 1)
+                    };
+                } else generated[item[0]] = generate(item[1], count);
             });
 
             const generatedArr = Object.entries(generated)
@@ -34,7 +43,13 @@ class Mock {
                 let record = {}
 
                 generatedArr.forEach((item) => {
-                    if (item[0] in template) record[item[0]] = item[1][i];
+                    if (item[0] === 'person' && item[1].insert == true) {
+                        record[item[0]] = {
+                            ...record[item[0]],
+                            ...item[1][i]
+                        };
+                    } else
+                        record[item[0]] = item[1][i];;
                 });
 
                 result.push(record)
