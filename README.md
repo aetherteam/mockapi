@@ -29,9 +29,9 @@ const userMock = new Mock(userTemplate); // create instance of the Mock from the
 
 console.log(userMock.get(10)); // generate 10 users from the template
 
-userMock.getAsync(1).then((res) => {
+userMock.getAsync(10).then((res) => {
 	console.log(res);
-}); // async version
+}); // generate 10 users from the template, but async
 ```
 
 ### Templates 
