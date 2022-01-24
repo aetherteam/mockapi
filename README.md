@@ -1,9 +1,9 @@
-# mockapi
+# mockapify
 
 ## Installation
 
 ```
-npm i mockapi
+npm i mockapify
 ```
 
 ## Fast navigation
@@ -37,7 +37,7 @@ userMock.getAsync(10).then((res) => {
 }); // generate 10 users from the template, but async
 ```
 
-### Templates
+## Templates
 
 ```js
 const template = {
@@ -54,9 +54,9 @@ const template = {
 
 You can use other mocks in template (described below)
 
-### Types
+## Types
 
-#### intid
+### intid
 
 Returns int id that can be unique
 
@@ -64,7 +64,7 @@ Returns int id that can be unique
 
 `unique: bool` _(default = false)_ -- Determines if the value must be unique
 
-#### person
+### person
 
 Returns an object with person
 
@@ -72,7 +72,7 @@ Returns an object with person
 
 `insert: bool` _(default = false)_ -- Determines if the value must be inserted in result or added as object
 
-#### randomrow
+### randomrow
 
 Returns a random row
 
@@ -82,7 +82,7 @@ Returns a random row
 
 `canUseNumbers: bool` _(default = false)_ -- Can string contain numbers
 
-#### randomint
+### randomint
 
 Returns a random int
 
@@ -92,7 +92,7 @@ Returns a random int
 
 `max: int` _(default = 10)_ -- Max value
 
-#### loremipsum
+### loremipsum
 
 Returns loremipsum text that has no sense but useful for creating placeholder texts
 
@@ -102,7 +102,7 @@ Returns loremipsum text that has no sense but useful for creating placeholder te
 
 `count: int` _(default = 1)_ -- Count of units to generate
 
-#### custom
+### custom
 
 Returns custom object that created from another mock
 
