@@ -20,5 +20,8 @@
   "type": "module",
   "dependencies": {
     "lorem-ipsum": "^2.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.7.0"
   }
 }

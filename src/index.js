@@ -1,8 +1,9 @@
-import dataFirstnames from './dataset/firstnames.js'
-import dataSurnames from './dataset/firstnames.js'
+import dataFirstnames from "./dataset/firstnames.js";
+import dataSurnames from "./dataset/firstnames.js";
 import {
 	loremIpsum
 } from "lorem-ipsum";
+import Mock from "../index.js";
 
 function generate(object, count) {
 	const type = object.type;
@@ -17,10 +18,10 @@ function generate(object, count) {
 		let generated;
 		if (object.unique) {
 			do {
-				generated = generator(object)
-			} while (result.includes(generated))
+				generated = generator(object);
+			} while (result.includes(generated));
 		} else {
-			generated = generator(object)
+			generated = generator(object);
 		}
 
 		result.push(generated);
@@ -38,7 +39,7 @@ const generators = {
 	},
 	person: () => {
 		const firstname = dataFirstnames[Math.floor(Math.random() * dataFirstnames.length)];
-		const surname = dataSurnames[Math.floor(Math.random() * dataSurnames.length)]
+		const surname = dataSurnames[Math.floor(Math.random() * dataSurnames.length)];
 		const fullname = firstname + " " + surname;
 		const nickname = (firstname + surname).toLowerCase();
 		const email = nickname + randomMailingSystem();
@@ -51,18 +52,18 @@ const generators = {
 			nickname,
 			email,
 			age
-		}
+		};
 	},
 	randomrow: (object) => {
 		// canUseNumbers = boolean (true)
 		// length = int (32)
 		let characters = (object.canUseNumbers) ?
-			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' :
-			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" :
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-		object.len = object.len || 32
+		object.len = object.len || 32;
 
-		let result = '';
+		let result = "";
 
 		for (let i = 0; i < object.len; i++) {
 			result += characters.charAt(Math.floor(Math.random() *
@@ -83,17 +84,18 @@ const generators = {
 		return loremIpsum({
 			count: object.count,
 			units: object.units 
-		})
+		});
 	},
 	custom: (object) => {
 		object.count = object.count || 1;
-		return object.mock.get(object.count, true);
+		const mock = new Mock(object.template);
+		return mock.get(object.count, true);
 	}
-}
+};
 
 function randomMailingSystem() {
-	const mailingSystems = ['@gmail.com', '@icloud.com', '@yandex.ru', '@yahoo.com']
-	return mailingSystems[Math.floor(Math.random() * mailingSystems.length)]
+	const mailingSystems = ["@gmail.com", "@icloud.com", "@yandex.ru", "@yahoo.com"];
+	return mailingSystems[Math.floor(Math.random() * mailingSystems.length)];
 }
 
 export default generate;
