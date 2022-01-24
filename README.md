@@ -1,17 +1,20 @@
 # mockapi
+
 ## Installation
 
 ```
 npm i mockapi
 ```
-## Fast navigation
-- [Example](#example)
-- [Templates](#templates)
-- [Types](#types)
-- [Extended example](#extended-example)
 
+## Fast navigation
+
+-   [Example](#example)
+-   [Templates](#templates)
+-   [Types](#types)
+-   [Extended example](#extended-example)
 
 ## Example
+
 ```js
 import mockapi as Mock;
 
@@ -34,7 +37,7 @@ userMock.getAsync(10).then((res) => {
 }); // generate 10 users from the template, but async
 ```
 
-### Templates 
+### Templates
 
 ```js
 const template = {
@@ -44,91 +47,103 @@ const template = {
     }
 }
 ```
+
 `fieldName` is a name of field you want to generate.
 
 `type` is the type of generating field.
 
 You can use other mocks in template (described below)
 
-
 ### Types
+
 #### intid
+
 Returns int id that can be unique
 
-`type: "intid"` 
+`type: "intid"`
 
 `unique: bool` _(default = false)_ -- Determines if the value must be unique
+
 #### person
+
 Returns an object with person
 
-`type: "person"` 
+`type: "person"`
 
-`insert: bool` _(default = false)_ -- Determines if the value must be inserted in result or added as object  
+`insert: bool` _(default = false)_ -- Determines if the value must be inserted in result or added as object
+
 #### randomrow
+
 Returns a random row
 
-`type: "randomrow"` 
+`type: "randomrow"`
 
-`len: int` _(default = 32)_ -- Determines if the value must be inserted in result or added as object  
+`len: int` _(default = 32)_ -- Determines if the value must be inserted in result or added as object
 
-`canUseNumbers: bool` _(default = false)_ -- Can string contain numbers  
+`canUseNumbers: bool` _(default = false)_ -- Can string contain numbers
+
 #### randomint
+
 Returns a random int
 
-`type: "randomint"` 
+`type: "randomint"`
 
 `min: int` _(default = 0)_ -- Min value
 
 `max: int` _(default = 10)_ -- Max value
+
 #### loremipsum
+
 Returns loremipsum text that has no sense but useful for creating placeholder texts
 
-`type: "loremipsum"` 
+`type: "loremipsum"`
 
 `units: "sentences" || "words" || "paragraphs"` _(default = "sentences")_ -- Units of counting
 
 `count: int` _(default = 1)_ -- Count of units to generate
+
 #### custom
+
 Returns custom object that created from another mock
 
 `type: "custom"`
 
-`template: object` -- Template for created object 
+`template: object` -- Template for created object
 
+## Extended example
 
-## Extended example 
 ```js
 import Mock from "./index.js";
 
 const firstTemplate = {
-	id: {
-		type: "intid",
-		unique: true
-	}
+    id: {
+        type: "intid",
+        unique: true,
+    },
 };
 const secondTemplate = {
-	id: {
-		type: "intid",
-		unique: false
-	},
-	person: {
-		type: "person",
-		insert: true
-	},
-	randomrow: {
-		type: "randomrow",
-		len: 100
-	},
-	randomint: {
-		type: "randomint"
-	},
-	loremipsum: {
-		type: "loremipsum"
-	},
-	customField: {
-		type: "custom",
-		template: firstTemplate,
-	}
+    id: {
+        type: "intid",
+        unique: false,
+    },
+    person: {
+        type: "person",
+        insert: true,
+    },
+    randomrow: {
+        type: "randomrow",
+        len: 100,
+    },
+    randomint: {
+        type: "randomint",
+    },
+    loremipsum: {
+        type: "loremipsum",
+    },
+    customField: {
+        type: "custom",
+        template: firstTemplate,
+    },
 };
 
 const userMock = new Mock(secondTemplate);
@@ -136,11 +151,11 @@ const userMock = new Mock(secondTemplate);
 console.log(userMock.get(1)); // sync version
 
 userMock.getAsync(1).then((res) => {
-	console.log(res);
+    console.log(res);
 }); // async version
 ```
 
-This will return 
+This will return
 
 ```js
 {
